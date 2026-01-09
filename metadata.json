@@ -1,0 +1,7 @@
+{
+  "name": "Trip Up Cumilla (TUC)",
+  "description": "A luxury travel agency management system for tracking tours, guests, income, and expenses with professional reporting.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

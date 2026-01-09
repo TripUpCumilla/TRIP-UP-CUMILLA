@@ -1,0 +1,24 @@
+
+{
+  "name": "trip-up-cumilla-tuc",
+  "version": "1.0.0",
+  "description": "Luxury travel agency management suite.",
+  "private": true,
+  "dependencies": {
+    "lucide-react": "^0.562.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "recharts": "^3.6.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  },
+  "keywords": [
+    "travel",
+    "agency",
+    "management",
+    "react",
+    "dashboard"
+  ],
+  "author": "Trip Up Cumilla"
+}
