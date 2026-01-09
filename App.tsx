@@ -1,13 +1,13 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
-import Layout from './components/Layout';
-import { Card, Button, Input, Label } from './components/SharedUI';
-import Dashboard from './views/Dashboard';
-import TourList from './views/TourList';
-import TourDetail from './views/TourDetail';
-import Reports from './views/Reports';
-import { storageService } from './services/storageService';
-import { User, Tour, Guest, Expense } from './types';
+import Layout from './components/Layout.tsx';
+import { Card, Button, Input, Label } from './components/SharedUI.tsx';
+import Dashboard from './views/Dashboard.tsx';
+import TourList from './views/TourList.tsx';
+import TourDetail from './views/TourDetail.tsx';
+import Reports from './views/Reports.tsx';
+import { storageService } from './services/storageService.ts';
+import { User, Tour, Guest, Expense } from './types.ts';
 
 const App: React.FC = () => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
@@ -15,16 +15,13 @@ const App: React.FC = () => {
   const [selectedTour, setSelectedTour] = useState<Tour | null>(null);
   const [isAuthLoading, setIsAuthLoading] = useState(false);
   
-  // Auth Form State
   const [isRegistering, setIsRegistering] = useState(false);
   const [authForm, setAuthForm] = useState({ name: '', email: '', password: '' });
 
-  // App Data State (Synced with storageService)
   const [tours, setTours] = useState<Tour[]>([]);
   const [allGuests, setAllGuests] = useState<Guest[]>([]);
   const [allExpenses, setAllExpenses] = useState<Expense[]>([]);
 
-  // Load user from persistent storage (simulated session)
   useEffect(() => {
     const savedEmail = localStorage.getItem('TUC_SESSION_EMAIL');
     if (savedEmail) {
@@ -88,7 +85,6 @@ const App: React.FC = () => {
     setSelectedTour(null);
   };
 
-  // Tour Handlers
   const addTour = (data: Partial<Tour>) => {
     if (!currentUser) return;
     const newTour: Tour = {
@@ -109,7 +105,6 @@ const App: React.FC = () => {
     if (selectedTour?.id === id) setSelectedTour(null);
   };
 
-  // Guest Handlers
   const addGuest = (data: Partial<Guest>) => {
     if (!currentUser || !selectedTour) return;
     const newGuest: Guest = {
@@ -128,7 +123,6 @@ const App: React.FC = () => {
     setAllGuests(allGuests.filter(g => g.id !== id));
   };
 
-  // Expense Handlers
   const addExpense = (data: Partial<Expense>) => {
     if (!currentUser || !selectedTour) return;
     const newExpense: Expense = {
@@ -159,7 +153,6 @@ const App: React.FC = () => {
     };
   }, [tours, allGuests, allExpenses]);
 
-  // Auth Screen
   if (!currentUser) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center p-6 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-red-950/20 via-black to-black">
@@ -208,7 +201,6 @@ const App: React.FC = () => {
     );
   }
 
-  // App Layout
   return (
     <Layout 
       userName={currentUser.name} 

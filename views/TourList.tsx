@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
-import { Card, Button, Input, Label } from '../components/SharedUI';
+import { Card, Button, Input, Label } from '../components/SharedUI.tsx';
 import { Plus, Search, Calendar, User, Users, Trash2, Map, Banknote } from 'lucide-react';
-import { Tour } from '../types';
+import { Tour } from '../types.ts';
 
 interface TourListProps {
   tours: Tour[];

@@ -1,5 +1,5 @@
 
-import { User, Tour, Guest, Expense } from '../types';
+import { User, Tour, Guest, Expense } from '../types.ts';
 
 const STORAGE_KEY = 'TUC_DATA_STORE';
 

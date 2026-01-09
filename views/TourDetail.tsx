@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
-import { Card, Button, Input, Label, Select } from '../components/SharedUI';
+import { Card, Button, Input, Label, Select } from '../components/SharedUI.tsx';
 import { ArrowLeft, Plus, Trash2, Printer, Users, CreditCard, PieChart, ShoppingBag, Phone, Map, AlertCircle, Banknote } from 'lucide-react';
-import { Tour, Guest, Expense } from '../types';
-import { EXPENSE_CATEGORIES } from '../constants';
+import { Tour, Guest, Expense } from '../types.ts';
+import { EXPENSE_CATEGORIES } from '../constants.tsx';
 
 interface TourDetailProps {
   tour: Tour;
@@ -49,7 +49,6 @@ const TourDetail: React.FC<TourDetailProps> = ({
 
   return (
     <div className="space-y-6">
-      {/* Print View Only - Force shown only during media print */}
       <div className="print-only p-12 text-black bg-white">
         <div className="flex justify-between items-start border-b-4 border-black pb-6 mb-8">
           <div>
@@ -103,7 +102,7 @@ const TourDetail: React.FC<TourDetailProps> = ({
                   <td className="border-r border-black p-3">{g.mobileNumber}</td>
                   <td className="border-r border-black p-3 text-center">{g.seatNumber}</td>
                   <td className="border-r border-black p-3 text-right">৳{g.paidAmount}</td>
-                  <td className="p-3 text-right font-black {unpaid > 0 ? 'text-red-600' : 'text-gray-400'}">
+                  <td className={`p-3 text-right font-black ${unpaid > 0 ? 'text-red-600' : 'text-gray-400'}`}>
                     ৳{unpaid}
                   </td>
                 </tr>
@@ -309,6 +308,11 @@ const TourDetail: React.FC<TourDetailProps> = ({
                       </td>
                     </tr>
                   ))}
+                  {expenses.length === 0 && (
+                    <tr>
+                      <td colSpan={4} className="px-6 py-12 text-center text-zinc-600 italic">No expenses recorded.</td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </Card>

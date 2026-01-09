@@ -18,12 +18,10 @@
 
         /* Improved Print Logic */
         @media print {
-            /* Hide everything that isn't the report */
             body, html { background: white !important; color: black !important; height: auto !important; }
             #root > .no-print { display: none !important; }
             .no-print { display: none !important; }
             
-            /* Show the print-only container and ensure it's at the top */
             .print-only { 
                 display: block !important; 
                 position: absolute !important;
@@ -33,7 +31,6 @@
                 z-index: 99999 !important;
             }
 
-            /* Fix layout breaks */
             main, section, div, header, aside { 
                 overflow: visible !important; 
                 height: auto !important; 
@@ -67,12 +64,14 @@
     "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
     "react/": "https://esm.sh/react@^19.2.3/",
     "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^0.2.1"
   }
 }
 </script>
 </head>
 <body>
     <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
 </body>
 </html>
